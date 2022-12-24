@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@200;300;400;500;600;700&display=swap');
+
+:root {
+  font-family: Inter Tight, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  position: relative;
+  font-weight: 500;
+  color: white;
+  text-decoration: inherit;
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: 1px solid white;
+  transition: .5s ease;
+}
+
+a:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  width: 20px;
+  opacity: 0;
+  height: 1px;
+  background-color: white;
+  transition: .5s ease;
+}
+
+a:hover:after {
+  opacity: 1;
+  width: 50px;
+}
+
+a:hover {
+  padding-right: 75px;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color:hsla(240,0%,0%,1);
+  background-image:
+  radial-gradient(at 0% 0%, hsla(314,100%,50%,0.41) 0px, transparent 50%),
+  radial-gradient(at 86% 0%, hsla(214,100%,50%,0.27) 0px, transparent 50%),
+  radial-gradient(at 77% 89%, hsla(214,100%,50%,0.26) 0px, transparent 50%),
+  radial-gradient(at 100% 98%, hsla(178,100%,37%,0.58) 0px, transparent 50%),
+  radial-gradient(at 100% 0%, hsla(312,100%,50%,0.51) 0px, transparent 50%),
+  radial-gradient(at 3% 95%, hsla(282,100%,45%,0.95) 0px, transparent 50%),
+  radial-gradient(at 9% 68%, hsla(235,100%,37%,1) 0px, transparent 50%);
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.logo {
+  height: 5em;
+  padding: 1.5em;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 1em white);
+}
+
+.content {
+  width: 100%;
+  height: auto;
+  padding-left: 10rem;
+}
+
+.content > h1 {
+  text-transform: uppercase;
+  line-height: 3rem;
+  padding-bottom: 2.5rem;
+}
+
+#credit {
+  margin-top: 10rem;
+  margin-bottom: 5rem;
+}
