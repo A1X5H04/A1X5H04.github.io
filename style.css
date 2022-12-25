@@ -51,7 +51,7 @@ a:hover {
 
 html {
 width: 100%;
-height: 100%;
+height: 100vh;
 }
 
 body {
@@ -88,7 +88,8 @@ h1 {
 }
 
 .logo {
-  height: 5em;
+  height: 3em;
+  width: auto;
   padding: 1.5em;
 }
 .logo:hover {
