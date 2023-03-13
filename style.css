@@ -1,14 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 :root {
-  font-family: Inter Tight, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Spline Sans Mono', monospace;
   font-size: 16px;
-  line-height: 24px;
   font-weight: 400;
 
-  color-scheme: light dark;
+  /* color-scheme: light dark; */
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: black;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -17,109 +22,119 @@
   -webkit-text-size-adjust: 100%;
 }
 
-a {
-  position: relative;
-  font-weight: 500;
-  color: white;
-  text-decoration: inherit;
-  padding: 10px 20px;
-  border-radius: 25px;
-  border: 2px solid white;
-  transition: .5s ease;
-}
-
-a:after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  width: 20px;
-  opacity: 0;
-  height: 1px;
-  background-color: white;
-  transition: .5s ease;
-}
-
-a:hover:after {
-  opacity: 1;
-  width: 50px;
-}
-
-a:hover {
-  padding-right: 75px;
-  border: 1px solid rgba(255,255,255,.5);
-}
-
 html {
-width: 100%;
-height: 100vh;
+  width: 100%;
+  height: 100vh;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  width: 100%;
   height: 100%;
-  background-color:hsla(240,0%,0%,1);
-  background-image:
-  radial-gradient(at 0% 0%, hsla(314,100%,50%,0.41) 0px, transparent 50%),
-  radial-gradient(at 86% 0%, hsla(214,100%,50%,0.27) 0px, transparent 50%),
-  radial-gradient(at 77% 89%, hsla(214,100%,50%,0.26) 0px, transparent 50%),
-  radial-gradient(at 100% 98%, hsla(178,100%,37%,0.58) 0px, transparent 50%),
-  radial-gradient(at 100% 0%, hsla(312,100%,50%,0.51) 0px, transparent 50%),
-  radial-gradient(at 3% 95%, hsla(282,100%,45%,0.95) 0px, transparent 50%),
-  radial-gradient(at 9% 68%, hsla(235,100%,37%,1) 0px, transparent 50%);
   overflow: hidden;
+  padding: 10px 0px;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+#grid-tiles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  top: 0;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  grid-template-rows: repeat(var(--rows), 1fr);
+  z-index: -1;
+}
+
+.tile {
+  outline: 1px solid #00ff952a;
+  width: 15px;
+  height: 15px;
 }
 
 #app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  place-content: space-between;
+  place-items: center;
+}
+
+header {
+  margin-top: 25px;
+  font-size: 30px;
+}
+
+main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
+  height: 25rem;
+}
+
+main > h1 {
+  font-size: 55px;
+  text-align: center;
+}
+
+main > h1 > span {
+  font-size: 75px;
+  color: #00FF94;
+}
+
+main > a {
+  position: relative;
+  text-decoration: none;
+  color: rgb(228, 228, 228);
+  font-size: 20px;
+  isolation: isolate;
+  font-weight: 300;
+  padding: 5px;
+  transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+main > a:hover {
+  color: black;
+  font-weight: 400;
+}
+
+main > a::before {
+  position: absolute;
+  content: "";
+  width: 0%;
+  height: 2px;
+  background-color: #00FF94;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  z-index: -1;
+}
+
+main > a:hover::before {
   width: 100%;
+}
+
+main > a::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  opacity: 0;
+  height: 2px;
+  background-color: #00ff95b0;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  transition-delay: .5s;
+  transition: 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  z-index: -1;
+}
+
+main > a:hover::after {
+  opacity: 1;
   height: 100%;
-  margin: 0 auto;
 }
 
-.logo {
-  height: 2em;
-  width: auto;
-  padding: 1.5em;
+footer {
+  color: gray;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 1em white);
-}
-
-.content {
-  width: 100%;
-  height: auto;
-  padding-left: 10rem;
-}
-
-.content > h1 {
-  text-transform: uppercase;
-  line-height: 3rem;
-  padding-bottom: 2.5rem;
-}
-
-#credit {
-  margin-top: 10rem;
-  margin-bottom: 5rem;
-}
-
-@media only screen and (max-width: 600px) {
-  .logo { height: 1em }
-  .content { padding-left: 5rem }
-   h1 { font-size: 2.5em; padding-bottom: 1rem }
-   span { font-size: 15px }
-   a { font-size:12px }
-   #credit { margin-top: 8rem; margin-bottom: 4rem; }
-}
-
